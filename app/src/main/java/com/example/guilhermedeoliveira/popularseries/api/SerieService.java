@@ -1,7 +1,9 @@
 package com.example.guilhermedeoliveira.popularseries.api;
 
 import com.example.guilhermedeoliveira.popularseries.model.Serie;
+import com.example.guilhermedeoliveira.popularseries.model.SerieArray;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -29,7 +31,10 @@ public interface SerieService {
     })
 
     @GET("shows/popular?extended=images")
-    Call<List<Serie>> getPopularSeries(@Query("page") int page , @Query("limit") int limit);
+    //@GET("shows/popular")
+    Call<List<SerieArray>> getPopularSeries(@Query("page") int page , @Query("limit") int limit);
+    //Call<SerieArray> getPopularSeries(@Query("extended") String images);
+    //Call<Serie> getPopularSeries(@Query("page") int page , @Query("limit") int limit);
 
     // testing with cUrl
     /**
