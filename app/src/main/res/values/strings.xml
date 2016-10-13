@@ -1,3 +1,15 @@
 <resources>
+
+    <!-- A -->
     <string name="app_name">PopularSeries</string>
+    <string name="action_settings">Configurações</string>
+
+    <!-- N -->
+    <string name="nota">Nota</string>
+    <!-- T -->
+    <string name="title">Title</string>
+
+    <!-- Y -->
+    <string name="year">Year</string>
+
 </resources>
