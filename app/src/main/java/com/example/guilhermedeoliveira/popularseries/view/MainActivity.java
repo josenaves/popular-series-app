@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import com.example.guilhermedeoliveira.popularseries.R;
 import com.example.guilhermedeoliveira.popularseries.api.SerieService;
 import com.example.guilhermedeoliveira.popularseries.model.Serie;
-import com.example.guilhermedeoliveira.popularseries.model.SerieArray;
 
 import java.util.List;
 
@@ -48,20 +47,22 @@ public class MainActivity extends AppCompatActivity {
 
         SerieService service = retrofit.create(SerieService.class);
 
-        Call<SerieArray> call = service.getPopularSeries(1, 10);
+        Call<List<Serie>> call = service.getPopularSeries(1, 10);
 
-        call.enqueue(new Callback<SerieArray>() {
+        call.enqueue(new Callback<List<Serie>>() {
             @Override
-            public void onResponse(Call<SerieArray> call, Response<SerieArray> response) {
+            public void onResponse(Call<List<Serie>> call, Response<List<Serie>> response) {
                 if (response.isSuccessful()) {
-                    SerieService result = response.body();
+                    List<Serie> result = response.body();
+                    Log.i(TAG, String.format("Series: %s", result.toString()));
+
                 } else {
                     Log.i(TAG, "Erro: " + response.code());
                 }
             }
 
             @Override
-            public void onFailure(Call<SerieArray> call, Throwable t) {
+            public void onFailure(Call<List<Serie>> call, Throwable t) {
                 Log.e(TAG, "Erro: " + t.getMessage());
             }
         });

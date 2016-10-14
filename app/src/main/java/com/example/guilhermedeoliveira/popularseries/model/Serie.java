@@ -6,7 +6,6 @@ package com.example.guilhermedeoliveira.popularseries.model;
 
 public class Serie {
 
-
     /**
      * title : Game of Thrones
      * year : 2011
@@ -87,5 +86,14 @@ public class Serie {
         public void setTvrage(int tvrage) {
             this.tvrage = tvrage;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Serie{" +
+                "title='" + title + '\'' +
+                ", year=" + year +
+                ", ids=" + ids +
+                '}';
     }
 }

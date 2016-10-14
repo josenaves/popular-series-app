@@ -1,18 +1,13 @@
 package com.example.guilhermedeoliveira.popularseries.api;
 
 import com.example.guilhermedeoliveira.popularseries.model.Serie;
-import com.example.guilhermedeoliveira.popularseries.model.SerieArray;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.Query;
-
-import static com.example.guilhermedeoliveira.popularseries.api.SerieService.CLIENT_ID;
-import static com.example.guilhermedeoliveira.popularseries.api.SerieService.VERSION;
 
 /**
  * Created by guilhermeoliveira on 10/10/16.
@@ -31,10 +26,7 @@ public interface SerieService {
     })
 
     @GET("shows/popular?extended=images")
-    //@GET("shows/popular")
-    Call<List<SerieArray>> getPopularSeries(@Query("page") int page , @Query("limit") int limit);
-    //Call<SerieArray> getPopularSeries(@Query("extended") String images);
-    //Call<Serie> getPopularSeries(@Query("page") int page , @Query("limit") int limit);
+    Call<List<Serie>> getPopularSeries(@Query("page") int page , @Query("limit") int limit);
 
     // testing with cUrl
     /**
